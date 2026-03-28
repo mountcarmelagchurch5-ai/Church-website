@@ -284,7 +284,7 @@
       <p class="hero-scripture">"For where two or three gather in my name, there am I with them." — Matthew 18:20</p>
       <div class="hero-cards">
         <div class="hero-card"><div class="label">⛪ Main Service</div><div class="value">Sunday 10:00 AM – 12:30 PM</div></div>
-        <div class="hero-card"><div class="label">📍 Location</div><div class="value"><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,698m" target="_blank" style="color:var(--gold);text-decoration:none;">Peringome, India</a></div></div>
+        <div class="hero-card"><div class="label">📍 Location</div><div class="value"><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba46779bbb87755:0x35b125006509ee40!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color:var(--gold);text-decoration:none;">Peringome, India</a></div></div>
         <div class="hero-card"><div class="label">👨‍💼 Pastor</div><div class="value">Pr. Shiju Mathai</div></div>
       </div>
       <div class="hero-btns">
@@ -440,7 +440,7 @@
           <div class="map-placeholder">
             <div style="font-size:3rem;">📍</div>
             <div style="text-align:center;"><p style="font-size:1rem;margin-bottom:0.5rem;">Mount Carmel AG Church</p><p style="font-size:0.85rem;opacity:0.7;">Peringome, India</p></div>
-            <button class="btn btn-gold" onclick="window.open('https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,698m','_blank')">Open in Google Maps</button>
+            <button class="btn btn-gold" onclick="window.open('https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba46779bbb87755:0x35b125006509ee40!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D','_blank')">Open in Google Maps</button>
           </div>
           <div style="margin-top:1.75rem;">
             <div class="contact-info-item"><div class="contact-icon">🕙</div><div><h4>Best Time to Visit</h4><p>Sunday Morning Service · 10:00 AM – 12:30 PM is our main gathering — perfect for first-time visitors.</p></div></div>
@@ -662,7 +662,7 @@
           <p class="section-label">Our Details</p>
           <h2 class="section-title">Reach Us</h2>
           <div class="gold-divider"></div>
-          <div class="contact-info-item"><div class="contact-icon">📍</div><div><h4>Address</h4><p>Mount Carmel AG Church<br>Peringome, India<br><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,698m" target="_blank" style="color:var(--gold);text-decoration:none;">View on Google Maps</a></p></div></div>
+          <div class="contact-info-item"><div class="contact-icon">📍</div><div><h4>Address</h4><p>Mount Carmel AG Church<br>Peringome, India<br><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba46779bbb87755:0x35b125006509ee40!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color:var(--gold);text-decoration:none;">View on Google Maps</a></p></div></div>
           <div class="contact-info-item"><div class="contact-icon">👨‍💼</div><div><h4>Lead Pastor</h4><p>Pr. Shiju Mathai</p></div></div>
           <div class="contact-info-item"><div class="contact-icon">📋</div><div><h4>Secretary</h4><p>Br. Siby<br><a href="tel:+919447936894" style="color:var(--gold);text-decoration:none;">+91 9447936894</a></p></div></div>
           <div class="contact-info-item"><div class="contact-icon">🕙</div><div><h4>Office Hours</h4><p>Monday – Saturday · 9:00 AM – 5:00 PM</p></div></div>
@@ -714,7 +714,6 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  // ── PAGE NAVIGATION ──
   function showPage(id) {
     document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
     document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
@@ -727,12 +726,10 @@
     setTimeout(observeFadeIns, 80);
   }
 
-  // ── HAMBURGER MENU ──
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
   }
 
-  // ── TOAST NOTIFICATION ──
   function showToast(msg) {
     var t = document.getElementById('toast');
     t.textContent = msg;
@@ -740,7 +737,6 @@
     setTimeout(function() { t.classList.remove('show'); }, 3500);
   }
 
-  // ── PRAYER REQUEST ──
   function submitPrayer() {
     var name = document.getElementById('prayerName').value.trim() || 'Anonymous';
     var req = document.getElementById('prayerRequest').value.trim();
@@ -753,7 +749,6 @@
     document.getElementById('prayerName').value = '';
   }
 
-  // ── LIVE WHATSAPP LINK UPDATE ──
   ['prayerName', 'prayerRequest', 'prayerType'].forEach(function(id) {
     var el = document.getElementById(id);
     if (el) {
@@ -768,7 +763,6 @@
     }
   });
 
-  // ── GALLERY SCROLL ──
   function scrollGallery(direction) {
     var gallery = document.getElementById('galleryScroll');
     if (gallery) {
@@ -776,7 +770,6 @@
     }
   }
 
-  // ── FADE IN ON SCROLL ──
   function observeFadeIns() {
     var els = document.querySelectorAll('.page.active .fade-in');
     var obs = new IntersectionObserver(function(entries) {
