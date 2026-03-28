@@ -348,11 +348,10 @@ padding-top: 64px;
   </section>
 
   <section>
-    <div class="container">
-      <p class="section-label">Our Community</p>
-      <h2 class="section-title">Photo Gallery</h2>
-      <div class="gold-divider"></div>
-      <div class="gallery-grid fade-in">
+    <div class="gallery-container">
+  <button class="scroll-btn left" onclick="scrollGallery(-1)">❮</button>
+  <div class="gallery-wrapper" id="gallery">
+    <div class="gallery-scroll">
         <div class="gallery-item g1"><img src="gallery-1.jpg.jpeg" alt="Church Worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
         <div class="gallery-item g2"><img src="gallery-2.jpg.jpeg" alt="Musicians and Worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
         <div class="gallery-item g3"><img src="gallery-3.jpg.jpeg" alt="Church Congregation" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
@@ -375,8 +374,9 @@ padding-top: 64px;
 <div class="gallery-item g20"><img src="church16.jpeg" alt="worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
 
       </div>
-      <p style="text-align:center;margin-top:1.5rem;color:var(--text-light);font-size:0.85rem;">Photos from worship gatherings, community events, and ministry programs</p>
-    </div>
+  </div>
+  <button class="scroll-btn right" onclick="scrollGallery(1)">❯</button>
+</div>
   </section>
 
   <div class="scripture-banner">
