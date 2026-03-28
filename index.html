@@ -68,8 +68,33 @@ padding-top: 64px;
   @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
   .hero-eyebrow { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; opacity: 0; animation: fadeUp 0.8s 0.2s ease both; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 6vw, 4.8rem); color: #fff; line-height: 1.15; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.4s ease both; }
-  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  ./* Small top text (WELCOME TO OUR FAMILY) */
+.hero-eyebrow {
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  animation: fadeUp 1s ease forwards;
+}
+
+/* Main heading */
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  animation: fadeUp 1s 0.3s ease forwards;
+}
+
+/* Gold highlight (AG Church) */
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+  text-shadow: 0 4px 20px rgba(200,169,110,0.4);
+}
+
   .hero-scripture { font-size: 1rem; color: rgba(255,255,255,0.65); font-style: italic; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.6s ease both; }
   .hero-cards { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.8s ease both; }
   .hero-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(200,169,110,0.3); border-radius: 10px; padding: 0.85rem 1.25rem; text-align: left; min-width: 155px; }
