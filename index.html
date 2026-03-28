@@ -77,13 +77,17 @@
 
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    font-size: clamp(2rem, 4vw, 3.5rem);
     color: #ffffff;
     line-height: 1.15;
     margin-bottom: 1.5rem;
     text-shadow: 0 4px 20px rgba(0,0,0,0.4);
     opacity: 0;
+    white-space: nowrap;
     animation: fadeUp 0.8s 0.3s ease both;
+  }
+  @media (max-width: 600px) {
+    .hero h1 { white-space: normal; font-size: clamp(1.8rem, 7vw, 2.4rem); }
   }
 
   .hero h1 em {
@@ -276,7 +280,7 @@
     <svg class="hero-cross" viewBox="0 0 100 100" fill="white"><rect x="42" y="5" width="16" height="90" rx="2"/><rect x="5" y="32" width="90" height="16" rx="2"/></svg>
     <div class="hero-content">
       <p class="hero-eyebrow">Welcome to Our Family</p>
-      <h1>Mount Carmel <em>AG Church</em></h1>
+      <h1><em>Mount Carmel AG Church</em></h1>
       <p class="hero-scripture">"For where two or three gather in my name, there am I with them." — Matthew 18:20</p>
       <div class="hero-cards">
         <div class="hero-card"><div class="label">⛪ Main Service</div><div class="value">Sunday 10:00 AM – 12:30 PM</div></div>
@@ -345,7 +349,7 @@
       <h2 class="section-title">Recent Sermons</h2>
       <div class="gold-divider"></div>
       <div class="sermon-list fade-in">
-        <div class="sermon-item" onclick="window.open('https://www.youtube.com/watch?v=KK3SZEJ3Bg4&t=6615s','_blank')"><div class="play-btn">▶</div><div class="sermon-info"><h4>Returning to the shepherd and embracing the guidance of the Bishop</h4><p>Pr. Shiju Mathai · March 22, 2025 · 1 Peter 2:25</p></div><div style="margin-left:auto;padding-left:1rem;color:var(--gold);font-size:0.75rem;white-space:nowrap;">▶ Watch on YouTube</div></div>
+        <div class="sermon-item" onclick="window.open('https://www.youtube.com/watch?v=KK3SZEJ3Bg4&t=6615s','_blank')"><div class="play-btn">▶</div><div class="sermon-info"><h4>Returning to the shepherd and embracing the guidance of the Bishop</h4><p>Pr. Shiju Mathai · March 23, 2025 · 1 Peter 2:25</p></div><div style="margin-left:auto;padding-left:1rem;color:var(--gold);font-size:0.75rem;white-space:nowrap;">▶ Watch on YouTube</div></div>
         <div class="sermon-item"><div class="play-btn">▶</div><div class="sermon-info"><h4>The Power of Intercessory Prayer</h4><p>Pr. Shiju Mathai · March 16, 2025 · 1 Timothy 2:1–4</p></div></div>
         <div class="sermon-item"><div class="play-btn">▶</div><div class="sermon-info"><h4>Faith That Moves Mountains</h4><p>Pr. Shiju Mathai · March 9, 2025 · Matthew 17:20</p></div></div>
         <div class="sermon-item"><div class="play-btn">▶</div><div class="sermon-info"><h4>Rooted in Love, Grounded in Grace</h4><p>Pr. Shiju Mathai · March 2, 2025 · Ephesians 3:17</p></div></div>
@@ -408,10 +412,10 @@
       <h2 class="section-title">What to Expect</h2>
       <div class="gold-divider"></div>
       <div class="visit-steps fade-in">
-        <div class="visit-step"><div class="step-num">🤝</div><h3>Arrive & Be Welcomed</h3><p>Greeters will welcome you at the door. Arrive a few minutes early to find a comfortable seat. Free parking is available.</p></div>
-        <div class="visit-step"><div class="step-num">🙌</div><h3>Worship Together</h3><p>We begin with praise and worship. Feel free to participate or simply listen. The atmosphere is warm, joyful, and welcoming to all.</p></div>
-        <div class="visit-step"><div class="step-num">📖</div><h3>Hear the Word</h3><p>Pastor Shiju Mathai delivers messages rooted in Scripture — practical, relevant, and encouraging for every stage of life.</p></div>
-        <div class="visit-step"><div class="step-num">👨‍👩‍👧‍👦</div><h3>Connect with the Family</h3><p>Stay for tea and fellowship after service. Our members would love to meet you and answer any questions you have.</p></div>
+        <div class="visit-step"><div class="step-num">1</div><h3>Arrive & Be Welcomed</h3><p>Greeters will welcome you at the door. Arrive a few minutes early to find a comfortable seat. Free parking is available.</p></div>
+        <div class="visit-step"><div class="step-num">2</div><h3>Worship Together</h3><p>We begin with praise and worship. Feel free to participate or simply listen. The atmosphere is warm, joyful, and welcoming to all.</p></div>
+        <div class="visit-step"><div class="step-num">3</div><h3>Hear the Word</h3><p>Pastor Shiju Mathai delivers messages rooted in Scripture — practical, relevant, and encouraging for every stage of life.</p></div>
+        <div class="visit-step"><div class="step-num">4</div><h3>Connect with the Family</h3><p>Stay for tea and fellowship after service. Our members would love to meet you and answer any questions you have.</p></div>
       </div>
     </div>
   </section>
