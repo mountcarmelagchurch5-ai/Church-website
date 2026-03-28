@@ -33,7 +33,6 @@
   .nav-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.2rem; text-decoration: none; cursor: pointer; display: flex; align-items: center; gap: 0.75rem; }
   .nav-logo { width: 40px; height: 40px; border-radius: 50%; background-size: cover; background-position: center; }
 
-
   .nav-links { display: flex; gap: 0.15rem; list-style: none; }
   .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.45rem 0.65rem; border-radius: 4px; transition: all 0.2s; cursor: pointer; display: block; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold); background: rgba(200,169,110,0.1); }
@@ -46,18 +45,16 @@
 
   .hero {
     min-height: 100vh;
-background-image:
-  linear-gradient(160deg, rgba(26,38,64,0.75), rgba(36,51,80,0.75)),
-  url('about-ush.jpg');
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-padding-top: 64px;
+    background-image: linear-gradient(160deg, rgba(26,38,64,0.75), rgba(36,51,80,0.75)), url('about-ush.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 64px;
   }
   .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(200,169,110,0.08) 0%, transparent 60%); }
 
@@ -67,33 +64,33 @@ padding-top: 64px;
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-  .hero-eyebrow { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; opacity: 0; animation: fadeUp 0.8s 0.2s ease both; }
-  ./* Small top text (WELCOME TO OUR FAMILY) */
-.hero-eyebrow {
-  color: rgba(255,255,255,0.85);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-weight: 500;
-  animation: fadeUp 1s ease forwards;
-}
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
 
-/* Main heading */
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.6rem, 6vw, 4.8rem);
-  color: #ffffff;
-  line-height: 1.15;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  animation: fadeUp 1s 0.3s ease forwards;
-}
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
 
-/* Gold highlight (AG Church) */
-.hero h1 em {
-  font-style: normal;
-  color: var(--gold);
-  text-shadow: 0 4px 20px rgba(200,169,110,0.4);
-}
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+    text-shadow: 0 4px 20px rgba(200,169,110,0.4);
+  }
 
   .hero-scripture { font-size: 1rem; color: rgba(255,255,255,0.65); font-style: italic; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.6s ease both; }
   .hero-cards { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.8s ease both; }
@@ -143,7 +140,7 @@ padding-top: 64px;
   .leader-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.5rem; }
   .leader-card { background: var(--cream); border-radius: 14px; padding: 2rem 1.5rem; text-align: center; border: 1px solid rgba(200,169,110,0.2); transition: all 0.25s; }
   .leader-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(26,38,64,0.1); }
-  .leader-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--deep), var(--navy)); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1rem; border: 3px solid var(--gold); }
+  .leader-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--deep), var(--navy)); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1rem; border: 3px solid var(--gold); overflow: hidden; }
   .leader-role { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
   .leader-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--deep); margin-bottom: 0.5rem; }
   .leader-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; }
@@ -151,7 +148,7 @@ padding-top: 64px;
   .testimonials-section { background: var(--blush); }
   .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; }
   .testimonial-card { background: #fff; border-radius: 14px; padding: 2rem; box-shadow: 0 4px 16px rgba(26,38,64,0.06); }
-  .testimonial-card .quote { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
+  .testimonial-quote { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
   .testimonial-card p { font-size: 0.92rem; color: var(--text); line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
   .testimonial-author { font-size: 0.83rem; font-weight: 700; color: var(--deep); }
 
@@ -164,13 +161,19 @@ padding-top: 64px;
   .event-info h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--deep); margin-bottom: 0.2rem; }
   .event-info p { font-size: 0.82rem; color: var(--text-light); }
 
-  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
-  .gallery-item { aspect-ratio: 1; border-radius: 10px; overflow: hidden; position: relative; }
-  .gallery-item .placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; transition: transform 0.4s; }
-  .gallery-item:hover .placeholder { transform: scale(1.1); }
+  .gallery-container { position: relative; display: flex; align-items: center; padding: 0 2rem; }
+  .gallery-wrapper { overflow: hidden; width: 100%; }
+  .gallery-scroll { display: flex; gap: 16px; overflow-x: auto; scroll-behavior: smooth; padding: 10px; }
+  .gallery-scroll::-webkit-scrollbar { display: none; }
+  .gallery-item { min-width: 300px; height: 200px; flex: 0 0 auto; border-radius: 10px; overflow: hidden; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: none; }
   .gallery-item.placeholder-show { background: linear-gradient(135deg, #1A2640, #243350); display: flex; align-items: center; justify-content: center; font-size: 2rem; }
-  .gallery-item.placeholder-show img { display: none !important; }
   .g1{background:linear-gradient(135deg,#1A2640,#243350)}.g2{background:linear-gradient(135deg,#7A8C6E,#5A6E52)}.g3{background:linear-gradient(135deg,#C8A96E,#A8894E)}.g4{background:linear-gradient(135deg,#243350,#3A5070)}.g5{background:linear-gradient(135deg,#9A7A5E,#7A5A3E)}.g6{background:linear-gradient(135deg,#5A6E52,#3A4E32)}
+
+  .scroll-btn { background: rgba(0,0,0,0.6); color: white; border: none; font-size: 24px; padding: 10px 14px; cursor: pointer; position: absolute; z-index: 10; border-radius: 6px; transition: background 0.2s; }
+  .scroll-btn:hover { background: rgba(200,169,110,0.8); }
+  .scroll-btn.left { left: 0; }
+  .scroll-btn.right { right: 0; }
 
   .sermon-list { display: flex; flex-direction: column; gap: 1rem; }
   .sermon-item { display: flex; align-items: center; gap: 1.5rem; background: var(--cream); border-radius: 12px; padding: 1.25rem 1.5rem; border: 1px solid rgba(200,169,110,0.2); transition: all 0.25s; cursor: pointer; }
@@ -245,64 +248,16 @@ padding-top: 64px;
     .hero-cards { flex-direction: column; align-items: center; }
     .hero-card { width: 100%; max-width: 300px; }
   }
-.gallery-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.gallery-wrapper {
-  overflow: hidden;
-  width: 100%;
-}
-
-.gallery-scroll {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px;
-}
-
-.gallery-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.gallery-item {
-  min-width: 300px;
-  height: 200px;
-  flex: 0 0 auto;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.scroll-btn {
-  background: rgba(0,0,0,0.6);
-  color: white;
-  border: none;
-  font-size: 24px;
-  padding: 10px;
-  cursor: pointer;
-  position: absolute;
-  z-index: 10;
-}
-
-.scroll-btn.left {
-  left: 0;
-}
-
-.scroll-btn.right {
-  right: 0;
-}
-
-/* END */
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <span class="nav-brand" onclick="showPage('home')"><img src="ag-logo.webp" alt="AG Logo" class="nav-logo" style="width: 45px; height: 45px; object-fit: contain; padding: 4px; background: white; border-radius: 50%; margin-right: 0.75rem; vertical-align: middle;"> Mount Carmel AG</span>
+  <span class="nav-brand" onclick="showPage('home')">
+    <img src="ag-logo.webp" alt="AG Logo" class="nav-logo" style="width:45px;height:45px;object-fit:contain;padding:4px;background:white;border-radius:50%;margin-right:0.75rem;vertical-align:middle;">
+    Mount Carmel AG
+  </span>
   <ul class="nav-links" id="navLinks">
     <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
     <li><a onclick="showPage('visit')" id="nav-visit">Plan Your Visit</a></li>
@@ -325,7 +280,7 @@ padding-top: 64px;
       <p class="hero-scripture">"For where two or three gather in my name, there am I with them." — Matthew 18:20</p>
       <div class="hero-cards">
         <div class="hero-card"><div class="label">⛪ Main Service</div><div class="value">Sunday 10:00 AM – 12:30 PM</div></div>
-        <div class="hero-card"><div class="label">📍 Location</div><div class="value"><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,698m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3ba46779bbb87755:0x35b125006509ee40!2sMount+Carmel+AG+CHURCH+PERINGOME!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8!3m5!1s0x3ba46779bbb87755:0x35b125006509ee40!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" style="color:rgba(255,255,255,0.9);text-decoration:none;">Peringome, India</a></div></div>
+        <div class="hero-card"><div class="label">📍 Location</div><div class="value"><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,698m" target="_blank" style="color:rgba(255,255,255,0.9);text-decoration:none;">Peringome, India</a></div></div>
         <div class="hero-card"><div class="label">👨‍💼 Pastor</div><div class="value">Pr. Shiju Mathai</div></div>
       </div>
       <div class="hero-btns">
@@ -346,13 +301,13 @@ padding-top: 64px;
       <h2 class="section-title">Weekly Services</h2>
       <div class="gold-divider"></div>
       <div class="services-grid fade-in">
-        <div class="service-card"><div class="service-day">📅Sunday</div><div class="service-name">👶Sunday School</div><div class="service-time">🕘 9:00 AM – 10:00 AM</div><span class="service-tag">In-Person</span></div>
-        <div class="service-card"><div class="service-day">📅Sunday</div><div class="service-name">⛪Sunday Worship Service</div><div class="service-time">🕙 10:00 AM – 12:30 PM</div><span class="service-tag">In-Person</span></div>
-        <div class="service-card"><div class="service-day">📅Tuesday</div><div class="service-name">🙏WMC Meeting</div><div class="service-time">🕖 7:00 PM – 9:00PM</div><span class="service-tag">Online · Google Meet</span></div>
-        <div class="service-card"><div class="service-day">📅Wednesday</div><div class="service-name">🏠Cottage Meeting</div><div class="service-time">🕖 7:00 PM – 9:00PM</div><span class="service-tag">In-Person</span></div>
-        <div class="service-card"><div class="service-day">📅Thursday</div><div class="service-name">👥Youth Meeting</div><div class="service-time">🕖 7:00 PM – 9:00PM</div><span class="service-tag">Online · Google Meet</span></div>
-        <div class="service-card"><div class="service-day">📅Friday</div><div class="service-name">🔥Fasting Prayer</div><div class="service-time">🕙 10:00 AM – 1:00 PM</div><span class="service-tag">In-Person</span></div>
-        <div class="service-card"><div class="service-day">📅Saturday</div><div class="service-name">✝️Intercessory Prayer</div><div class="service-time">🕖 7:00 PM – 9:00PM</div><span class="service-tag">In-Person</span></div>
+        <div class="service-card"><div class="service-day">📅 Sunday</div><div class="service-name">👶 Sunday School</div><div class="service-time">🕘 9:00 AM – 10:00 AM</div><span class="service-tag">In-Person</span></div>
+        <div class="service-card"><div class="service-day">📅 Sunday</div><div class="service-name">⛪ Sunday Worship Service</div><div class="service-time">🕙 10:00 AM – 12:30 PM</div><span class="service-tag">In-Person</span></div>
+        <div class="service-card"><div class="service-day">📅 Tuesday</div><div class="service-name">🙏 WMC Meeting</div><div class="service-time">🕖 7:00 PM – 9:00 PM</div><span class="service-tag">Online · Google Meet</span></div>
+        <div class="service-card"><div class="service-day">📅 Wednesday</div><div class="service-name">🏠 Cottage Meeting</div><div class="service-time">🕖 7:00 PM – 9:00 PM</div><span class="service-tag">In-Person</span></div>
+        <div class="service-card"><div class="service-day">📅 Thursday</div><div class="service-name">👥 Youth Meeting</div><div class="service-time">🕖 7:00 PM – 9:00 PM</div><span class="service-tag">Online · Google Meet</span></div>
+        <div class="service-card"><div class="service-day">📅 Friday</div><div class="service-name">🔥 Fasting Prayer</div><div class="service-time">🕙 10:00 AM – 1:00 PM</div><span class="service-tag">In-Person</span></div>
+        <div class="service-card"><div class="service-day">📅 Saturday</div><div class="service-name">✝️ Intercessory Prayer</div><div class="service-time">🕖 7:00 PM – 9:00 PM</div><span class="service-tag">In-Person</span></div>
       </div>
     </div>
   </section>
@@ -363,9 +318,9 @@ padding-top: 64px;
       <h2 class="section-title">Lives Transformed by Grace</h2>
       <div class="gold-divider"></div>
       <div class="testimonials-grid fade-in">
-        <div class="testimonial-card"><div class="“">"</div><p>Coming to Mount Carmel AG Church changed my life. The warmth of the community and the depth of the teaching brought me closer to God than I ever thought possible.</p><div class="testimonial-author">— Johncy Jesvin., Member since 2019</div></div>
-        <div class="testimonial-card"><div class="“">"</div><p>The youth ministry here gave my children a solid foundation of faith. We are so grateful for Pastor Shiju and the entire leadership team's dedication.</p><div class="testimonial-author">— Dr.Ben & Family., Member</div></div>
-        <div class="testimonial-card"><div class="“">"</div><p>The prayer group at Mount Carmel AG Church has been a lifeline for our family. When we faced a crisis, this church wrapped us in love and faithful intercession.</p><div class="testimonial-author">— Jees John & Family., Member</div></div>
+        <div class="testimonial-card"><div class="testimonial-quote">"</div><p>Coming to Mount Carmel AG Church changed my life. The warmth of the community and the depth of the teaching brought me closer to God than I ever thought possible.</p><div class="testimonial-author">— Johncy Jesvin., Member since 2019</div></div>
+        <div class="testimonial-card"><div class="testimonial-quote">"</div><p>The youth ministry here gave my children a solid foundation of faith. We are so grateful for Pastor Shiju and the entire leadership team's dedication.</p><div class="testimonial-author">— Dr. Ben & Family., Member</div></div>
+        <div class="testimonial-card"><div class="testimonial-quote">"</div><p>The prayer group at Mount Carmel AG Church has been a lifeline for our family. When we faced a crisis, this church wrapped us in love and faithful intercession.</p><div class="testimonial-author">— Jees John & Family., Member</div></div>
       </div>
     </div>
   </section>
@@ -399,40 +354,39 @@ padding-top: 64px;
   </section>
 
   <section>
-  <div class="container">
-    <p class="section-label">Our Community</p>
-    <h2 class="section-title">Photo Gallery</h2>
-    <div class="gold-divider"></div>
-  </div>
-  <div class="gallery-container">
-  <button class="scroll-btn left" onclick="scrollGallery(-1)">❮</button>
-  <div class="gallery-wrapper" id="gallery">
-    <div class="gallery-scroll">
-        <div class="gallery-item g1"><img src="gallery-1.jpg.jpeg" alt="Church Worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-        <div class="gallery-item g2"><img src="gallery-2.jpg.jpeg" alt="Musicians and Worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-        <div class="gallery-item g3"><img src="gallery-3.jpg.jpeg" alt="Church Congregation" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-        <div class="gallery-item g4"><img src="gallery-4.jpg.jpeg" alt="Pastor Preaching" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-        <div class="gallery-item g5"><img src="church1.jpeg" alt="worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-        <div class="gallery-item g6"><img src="church2.jpeg" alt="worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-      <div class="gallery-item g7"><img src="church3.jpeg" alt="worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g8"><img src="church4.jpeg" alt="worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g9"><img src="church5.jpeg" alt="prayer" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g10"><img src="church6.jpeg" alt="Fasting prayer" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g11"><img src="church7.jpeg" alt="anointing" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g12"><img src="church8.jpeg" alt="worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g13"><img src="church9.jpeg" alt="worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g14"><img src="church10.jpeg" alt="worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g15"><img src="church11.jpeg" alt="worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g16"><img src="church12.jpeg" alt="Gods word" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g17"><img src="church13.jpeg" alt="Ministring" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g18"><img src="church14.jpeg" alt="prayer" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g19"><img src="church15.jpeg" alt="worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-<div class="gallery-item g20"><img src="church16.jpeg" alt="worship" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:none;" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
-
+    <div class="container">
+      <p class="section-label">Our Community</p>
+      <h2 class="section-title">Photo Gallery</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="gallery-container">
+      <button class="scroll-btn left" onclick="scrollGallery(-1)">❮</button>
+      <div class="gallery-wrapper">
+        <div class="gallery-scroll" id="galleryScroll">
+          <div class="gallery-item g1"><img src="gallery-1.jpg.jpeg" alt="Church Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g2"><img src="gallery-2.jpg.jpeg" alt="Musicians and Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g3"><img src="gallery-3.jpg.jpeg" alt="Church Congregation" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g4"><img src="gallery-4.jpg.jpeg" alt="Pastor Preaching" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g5"><img src="church1.jpeg" alt="Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g6"><img src="church2.jpeg" alt="Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g1"><img src="church3.jpeg" alt="Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g2"><img src="church4.jpeg" alt="Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g3"><img src="church5.jpeg" alt="Prayer" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g4"><img src="church6.jpeg" alt="Fasting Prayer" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g5"><img src="church7.jpeg" alt="Anointing" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g6"><img src="church8.jpeg" alt="Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g1"><img src="church9.jpeg" alt="Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g2"><img src="church10.jpeg" alt="Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g3"><img src="church11.jpeg" alt="Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g4"><img src="church12.jpeg" alt="God's Word" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g5"><img src="church13.jpeg" alt="Ministering" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g6"><img src="church14.jpeg" alt="Prayer" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g1"><img src="church15.jpeg" alt="Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+          <div class="gallery-item g2"><img src="church16.jpeg" alt="Worship" onload="this.style.display='block'" onerror="this.parentElement.classList.add('placeholder-show')"></div>
+        </div>
       </div>
-  </div>
-  <button class="scroll-btn right" onclick="scrollGallery(1)">❯</button>
-</div>
+      <button class="scroll-btn right" onclick="scrollGallery(1)">❯</button>
+    </div>
   </section>
 
   <div class="scripture-banner">
@@ -469,8 +423,8 @@ padding-top: 64px;
           <h2 class="section-title">Before You Come</h2>
           <div class="gold-divider"></div>
           <div style="display:flex;flex-direction:column;gap:1.25rem;">
-            <div class="belief-card"><h3>👗 Dress Code</h3><p>Come as you are! Smart casual is the norm, but there is no strict dress code. What matters is your heart, not your clothes. You will be welcomed regardless.</p></div>
-            <div class="belief-card"><h3>👨‍👩‍👧 Children & Families</h3><p>Children are warmly welcome in all services. Sunday School runs 9–10 AM especially for children. A caring, nurturing environment is provided for little ones.</p></div>
+            <div class="belief-card"><h3>👗 Dress Code</h3><p>Come as you are! Smart casual is the norm, but there is no strict dress code. What matters is your heart, not your clothes.</p></div>
+            <div class="belief-card"><h3>👨‍👩‍👧 Children & Families</h3><p>Children are warmly welcome in all services. Sunday School runs 9–10 AM especially for children.</p></div>
             <div class="belief-card"><h3>🅿️ Parking</h3><p>Free parking is available on church grounds. Please arrive 10–15 minutes early on Sundays for the best experience.</p></div>
             <div class="belief-card"><h3>📱 During Service</h3><p>Please switch your phone to silent mode. Feel free to use a Bible app during the sermon — it's encouraged!</p></div>
           </div>
@@ -482,7 +436,7 @@ padding-top: 64px;
           <div class="map-placeholder">
             <div style="font-size:3rem;">📍</div>
             <div style="text-align:center;"><p style="font-size:1rem;margin-bottom:0.5rem;">Mount Carmel AG Church</p><p style="font-size:0.85rem;opacity:0.7;">Peringome, India</p></div>
-            <button class="btn btn-gold" onclick="window.open('https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,698m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3ba46779bbb87755:0x35b125006509ee40!2sMount+Carmel+AG+CHURCH+PERINGOME!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8!3m5!1s0x3ba46779bbb87755:0x35b125006509ee40!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D','_blank')">Open in Google Maps</button>
+            <button class="btn btn-gold" onclick="window.open('https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,698m','_blank')">Open in Google Maps</button>
           </div>
           <div style="margin-top:1.75rem;">
             <div class="contact-info-item"><div class="contact-icon">🕙</div><div><h4>Best Time to Visit</h4><p>Sunday Morning Service · 10:00 AM – 12:30 PM is our main gathering — perfect for first-time visitors.</p></div></div>
@@ -502,34 +456,19 @@ padding-top: 64px;
     <p>Rooted in faith. Growing in love. Reaching the world.</p>
   </div>
   <section>
-  <div class="container" style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
-
-    <!-- LEFT SIDE (TEXT) -->
-    <div style="flex: 1; min-width: 300px;">
-      <p class="section-label">Who We Are</p>
-      <h2 class="section-title">Our Story</h2>
-      <div class="gold-divider"></div>
-
-      <p style="font-size:1.05rem;color:var(--text);line-height:1.85;margin-bottom:1.75rem;">
-        Mount Carmel AG Church was founded on the bedrock of Scripture and a burning desire to see lives transformed by the power of the Holy Spirit. What began as a small gathering of believers meeting in homes has grown into a vibrant, Spirit-filled community serving Kerala and beyond.
-      </p>
-
-      <p style="font-size:1.05rem;color:var(--text);line-height:1.85;">
-        We are a church that believes in the full Gospel — salvation, healing, and the gifts of the Spirit — and we are committed to making disciples who make disciples. Under the faithful leadership of Pastor Shiju Mathai and a dedicated team, our church continues to grow as we pursue God's presence, preach His Word, and extend His love through prayer, worship, and service.
-      </p>
+    <div class="container" style="display:flex;align-items:center;gap:40px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:300px;">
+        <p class="section-label">Who We Are</p>
+        <h2 class="section-title">Our Story</h2>
+        <div class="gold-divider"></div>
+        <p style="font-size:1.05rem;color:var(--text);line-height:1.85;margin-bottom:1.75rem;">Mount Carmel AG Church was founded on the bedrock of Scripture and a burning desire to see lives transformed by the power of the Holy Spirit. What began as a small gathering of believers meeting in homes has grown into a vibrant, Spirit-filled community serving Kerala and beyond.</p>
+        <p style="font-size:1.05rem;color:var(--text);line-height:1.85;">We are a church that believes in the full Gospel — salvation, healing, and the gifts of the Spirit — and we are committed to making disciples who make disciples. Under the faithful leadership of Pastor Shiju Mathai and a dedicated team, our church continues to grow as we pursue God's presence, preach His Word, and extend His love through prayer, worship, and service.</p>
+      </div>
+      <div style="flex:1;min-width:300px;text-align:center;">
+        <img src="about-us.jpg" alt="Church Image" style="width:100%;max-width:500px;border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,0.15);opacity:0.95;transition:all 0.4s ease;">
+      </div>
     </div>
-
-    <!-- RIGHT SIDE (IMAGE) -->
-    <div style="flex: 1; min-width: 300px; text-align: center;">
-      <img src="about-us.jpg" alt="Church Image" 
-     style="width: 100%; max-width: 500px; border-radius: 16px; 
-     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-     opacity: 0.95;
-     transition: all 0.4s ease;">
-    </div>
-
-  </div>
-</section>
+  </section>
 
   <section class="alt-bg">
     <div class="container">
@@ -596,14 +535,14 @@ padding-top: 64px;
       <h2 class="section-title">All Services at a Glance</h2>
       <div class="gold-divider"></div>
       <div class="services-grid fade-in">
-        <div class="service-card"><div class="service-day">📅Sunday</div><div class="service-name">👶Sunday School</div><div class="service-time">🕘 9:00 AM – 10:00 AM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Bible-based classes for children of all ages. A wonderful foundation in the faith for our youngest members.</p><span class="service-tag">In-Person · Children</span></div>
-        <div class="service-card"><div class="service-day">📅Sunday</div><div class="service-name">⛪Sunday Worship Service</div><div class="service-time">🕙 10:00 AM – 12:30 PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Our main weekly celebration featuring praise, worship, and a message from Pastor Shiju Mathai. All are warmly welcome!</p><span class="service-tag">In-Person · All Ages</span></div>
-        <div class="service-card"><div class="service-day">📅Tuesday</div><div class="service-name">🙏WMC Meeting</div><div class="service-time">🕖 7:00 PM – 9:00PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Women's Ministry Committee gathering for prayer, fellowship, and planning. Conducted via Google Meet for accessibility.</p><span class="service-tag">Online · Google Meet</span></div>
-        <div class="service-card"><div class="service-day">📅Wednesday</div><div class="service-name">🏠Cottage Meeting</div><div class="service-time">🕖 7:00 PM – 9:00PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Intimate home-based gatherings for Bible study, prayer, and fellowship. Hosted in members' homes on a rotating basis.</p><span class="service-tag">In-Person · Home Groups</span></div>
-        <div class="service-card"><div class="service-day">📅Thursday</div><div class="service-name">👥Youth Meeting</div><div class="service-time">🕖 7:00 PM – 9:00PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Shekinah Youth Ministries — a lively gathering for young people with worship, teaching, and growing together in Christ.</p><span class="service-tag">Online · Google Meet</span></div>
-        <div class="service-card"><div class="service-day">📅Friday</div><div class="service-name">🔥Fasting Prayer</div><div class="service-time">🕙 10:00 AM – 1:00 PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">A dedicated time of corporate fasting and prayer — seeking God's face and interceding for families, the nation, and the world.</p><span class="service-tag">In-Person · Prayer</span></div>
-        <div class="service-card"><div class="service-day">📅Saturday</div><div class="service-name">✝️Intercessory Prayer</div><div class="service-time">🕖 7:00 PM – 9:00PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Powerful intercessory prayer meeting. Come and stand in the gap for your family, community, and the body of Christ.</p><span class="service-tag">In-Person · Prayer</span></div>
-        <div class="service-card"><div class="service-day">📅2nd Sunday</div><div class="service-name">🕊️Christ Ambassadors</div><div class="service-time">🕐 12:00 PM – 1:00 PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Christ Ambassadors gathering held on the 2nd Sunday of every month. Join us for fellowship, spiritual growth, and equipping for effective evangelism and discipleship.</p><span class="service-tag">In-Person · Youth Meeting</span></div>
+        <div class="service-card"><div class="service-day">📅 Sunday</div><div class="service-name">👶 Sunday School</div><div class="service-time">🕘 9:00 AM – 10:00 AM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Bible-based classes for children of all ages. A wonderful foundation in the faith for our youngest members.</p><span class="service-tag">In-Person · Children</span></div>
+        <div class="service-card"><div class="service-day">📅 Sunday</div><div class="service-name">⛪ Sunday Worship Service</div><div class="service-time">🕙 10:00 AM – 12:30 PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Our main weekly celebration featuring praise, worship, and a message from Pastor Shiju Mathai. All are warmly welcome!</p><span class="service-tag">In-Person · All Ages</span></div>
+        <div class="service-card"><div class="service-day">📅 Tuesday</div><div class="service-name">🙏 WMC Meeting</div><div class="service-time">🕖 7:00 PM – 9:00 PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Women's Ministry Committee gathering for prayer, fellowship, and planning. Conducted via Google Meet for accessibility.</p><span class="service-tag">Online · Google Meet</span></div>
+        <div class="service-card"><div class="service-day">📅 Wednesday</div><div class="service-name">🏠 Cottage Meeting</div><div class="service-time">🕖 7:00 PM – 9:00 PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Intimate home-based gatherings for Bible study, prayer, and fellowship. Hosted in members' homes on a rotating basis.</p><span class="service-tag">In-Person · Home Groups</span></div>
+        <div class="service-card"><div class="service-day">📅 Thursday</div><div class="service-name">👥 Youth Meeting</div><div class="service-time">🕖 7:00 PM – 9:00 PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Shekinah Youth Ministries — a lively gathering for young people with worship, teaching, and growing together in Christ.</p><span class="service-tag">Online · Google Meet</span></div>
+        <div class="service-card"><div class="service-day">📅 Friday</div><div class="service-name">🔥 Fasting Prayer</div><div class="service-time">🕙 10:00 AM – 1:00 PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">A dedicated time of corporate fasting and prayer — seeking God's face and interceding for families, the nation, and the world.</p><span class="service-tag">In-Person · Prayer</span></div>
+        <div class="service-card"><div class="service-day">📅 Saturday</div><div class="service-name">✝️ Intercessory Prayer</div><div class="service-time">🕖 7:00 PM – 9:00 PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Powerful intercessory prayer meeting. Come and stand in the gap for your family, community, and the body of Christ.</p><span class="service-tag">In-Person · Prayer</span></div>
+        <div class="service-card"><div class="service-day">📅 2nd Sunday</div><div class="service-name">🕊️ Christ Ambassadors</div><div class="service-time">🕐 12:00 PM – 1:00 PM</div><p style="margin-top:0.75rem;font-size:0.88rem;color:var(--text-light);">Christ Ambassadors gathering held on the 2nd Sunday of every month. Join us for fellowship, spiritual growth, and equipping for effective evangelism and discipleship.</p><span class="service-tag">In-Person · Youth Meeting</span></div>
       </div>
     </div>
   </section>
@@ -619,7 +558,6 @@ padding-top: 64px;
     <h1>Our Ministries</h1>
     <p>Every ministry exists to glorify God and serve one another and the world around us.</p>
   </div>
-
   <section>
     <div class="container">
       <p class="section-label">Ministry Programs</p>
@@ -645,24 +583,19 @@ padding-top: 64px;
 
       <h3 style="font-family:'Playfair Display',serif;color:var(--deep);font-size:1.3rem;margin-bottom:1.5rem;">Pastoral Leadership</h3>
       <div class="leader-grid fade-in" style="margin-bottom:3rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-        <div class="leader-card"><div class="leader-avatar"><img src="pastor-shiju.jpg" alt="Pr. Shiju Mathai" style="width:100%; height:100%; object-fit:cover; border-radius:50%;"></div><div class="leader-role">Lead Pastor / President</div><div class="leader-name">Pr. Shiju Mathai</div><div class="leader-desc">Shepherd and President of Mount Carmel AG Church. Called to preach the Word, lead the flock, and build a house of prayer. Passionate about revival, discipleship, and mission.</div></div>
+        <div class="leader-card"><div class="leader-avatar"><img src="pastor-shiju.jpg" alt="Pr. Shiju Mathai" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="leader-role">Lead Pastor / President</div><div class="leader-name">Pr. Shiju Mathai</div><div class="leader-desc">Shepherd and President of Mount Carmel AG Church. Called to preach the Word, lead the flock, and build a house of prayer. Passionate about revival, discipleship, and mission.</div></div>
       </div>
 
       <h3 style="font-family:'Playfair Display',serif;color:var(--deep);font-size:1.3rem;margin-bottom:1.5rem;">Church Committee</h3>
       <div class="leader-grid fade-in">
-        <div class="leader-card"><div class="leader-avatar"><img src="siby-pm.jpg" alt="Siby" style="width:70px; height:70px; object-fit:cover; border-radius:50%;"></div><div class="leader-role">Secretary</div><div class="leader-name">Br. Siby</div><div class="leader-desc">Responsible for church administration, correspondence, minutes of meetings, and coordinating all church communications and official records.</div></div>
-        <div class="leader-card"><div class="leader-avatar"><img src="sefin-kp.jpg" alt="Sefin" style="width:70px; height:70px; object-fit:cover; border-radius:50%;">
-</div><div class="leader-role">Treasurer</div><div class="leader-name">Br. Sefin</div><div class="leader-desc">Oversees the financial stewardship of the church — maintaining accounts, managing funds, and ensuring transparent and accountable financial reporting.</div></div>
-        <div class="leader-card"><div class="leader-avatar"><img src="sunil-sp.jpg" alt="Br. Sunil" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #b38e5d; vertical-align: middle;">
-</div><div class="leader-role">Committee Member</div><div class="leader-name">Br. Sunil</div><div class="leader-desc">Serves on the church committee, contributing to decisions about ministry direction, church activities, and the welfare of the congregation.</div></div>
-        <div class="leader-card"><div class="leader-avatar"><img src="papachan-ag.jpg" alt="Br.papachan" style="width:70px; height:70px; object-fit:cover; border-radius:50%;">
-</div><div class="leader-role">Committee Member</div><div class="leader-name">Br. Papachan</div><div class="leader-desc">Active member of the church committee, faithfully serving in planning, coordination, and supporting the broader vision of the church leadership.</div></div>
-        <div class="leader-card"><div class="leader-avatar">
-  <img src="jessy-jacob.jpg" alt="Jessy Jacob" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
-</div><div class="leader-role">Head Mistress</div><div class="leader-name">Sis. Jessy Jacob</div><div class="leader-desc">Leads and manages Sunday School by guiding teachers, organizing lessons, and creating a positive learning environment for children.</div></div>
-        <div class="leader-card"><div class="leader-avatar"><img src="jijo-j.jpg" alt="Br.Jijo" style="width:70px; height:70px; object-fit:cover; border-radius:50%;"></div><div class="leader-role">Christ Ambassador Ministry</div><div class="leader-name">Bro. Jijo</div><div class="leader-desc">Oversees Christ Ambassadors by coordinating programs, supporting youth, and fostering spiritual growth and leadership.</div></div>
-        <div class="leader-card"><div class="leader-avatar"><img src="joy-a.jpg" alt="Br.Joy" style="width:70px; height:70px; object-fit:cover; border-radius:50%;"></div><div class="leader-role">Charity Ministry</div><div class="leader-name">Bro. Joy</div><div class="leader-desc">Oversees charity initiatives by managing donations, organizing outreach efforts, and serving the community with compassion.</div></div>
-        <div class="leader-card"><div class="leader-avatar"><img src="sheeba-shiju.jpg" alt="Sheeba Shiju" style="width:70px; height:70px; object-fit:cover; border-radius:50%;"></div><div class="leader-role">Women's Ministry</div><div class="leader-name">Sis. Sheeba Shiju</div><div class="leader-desc">Oversees women's ministry by coordinating programs, nurturing faith, and promoting fellowship and service within the church.</div></div>
+        <div class="leader-card"><div class="leader-avatar"><img src="siby-pm.jpg" alt="Siby" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="leader-role">Secretary</div><div class="leader-name">Br. Siby</div><div class="leader-desc">Responsible for church administration, correspondence, minutes of meetings, and coordinating all church communications and official records.</div></div>
+        <div class="leader-card"><div class="leader-avatar"><img src="sefin-kp.jpg" alt="Sefin" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="leader-role">Treasurer</div><div class="leader-name">Br. Sefin</div><div class="leader-desc">Oversees the financial stewardship of the church — maintaining accounts, managing funds, and ensuring transparent and accountable financial reporting.</div></div>
+        <div class="leader-card"><div class="leader-avatar"><img src="sunil-sp.jpg" alt="Br. Sunil" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="leader-role">Committee Member</div><div class="leader-name">Br. Sunil</div><div class="leader-desc">Serves on the church committee, contributing to decisions about ministry direction, church activities, and the welfare of the congregation.</div></div>
+        <div class="leader-card"><div class="leader-avatar"><img src="papachan-ag.jpg" alt="Br. Papachan" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="leader-role">Committee Member</div><div class="leader-name">Br. Papachan</div><div class="leader-desc">Active member of the church committee, faithfully serving in planning, coordination, and supporting the broader vision of the church leadership.</div></div>
+        <div class="leader-card"><div class="leader-avatar"><img src="jessy-jacob.jpg" alt="Jessy Jacob" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="leader-role">Head Mistress</div><div class="leader-name">Sis. Jessy Jacob</div><div class="leader-desc">Leads and manages Sunday School by guiding teachers, organizing lessons, and creating a positive learning environment for children.</div></div>
+        <div class="leader-card"><div class="leader-avatar"><img src="jijo-j.jpg" alt="Br. Jijo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="leader-role">Christ Ambassador Ministry</div><div class="leader-name">Bro. Jijo</div><div class="leader-desc">Oversees Christ Ambassadors by coordinating programs, supporting youth, and fostering spiritual growth and leadership.</div></div>
+        <div class="leader-card"><div class="leader-avatar"><img src="joy-a.jpg" alt="Br. Joy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="leader-role">Charity Ministry</div><div class="leader-name">Bro. Joy</div><div class="leader-desc">Oversees charity initiatives by managing donations, organizing outreach efforts, and serving the community with compassion.</div></div>
+        <div class="leader-card"><div class="leader-avatar"><img src="sheeba-shiju.jpg" alt="Sheeba Shiju" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="leader-role">Women's Ministry</div><div class="leader-name">Sis. Sheeba Shiju</div><div class="leader-desc">Oversees women's ministry by coordinating programs, nurturing faith, and promoting fellowship and service within the church.</div></div>
       </div>
     </div>
   </section>
@@ -680,7 +613,7 @@ padding-top: 64px;
         <p class="section-label">We're Here for You</p>
         <h2 class="section-title">Share Your Prayer Need</h2>
         <div class="gold-divider" style="margin:1rem auto 1.5rem;"></div>
-        <p style="font-size:1rem;color:var(--text-light);line-height:1.8;">You do not have to carry your burdens alone. Our pastoral team and prayer warriors are here to stand with you in faith. Share your request and we will lift you up in prayer. God hears every prayer, and we believe in His power to heal, restore, and provide.</p>
+        <p style="font-size:1rem;color:var(--text-light);line-height:1.8;">You do not have to carry your burdens alone. Our pastoral team and prayer warriors are here to stand with you in faith. Share your request and we will lift you up in prayer.</p>
       </div>
       <div class="prayer-form fade-in">
         <div class="form-group"><label>Your Name</label><input type="text" id="prayerName" placeholder="Your name (anonymous is fine too)" /></div>
@@ -725,7 +658,7 @@ padding-top: 64px;
           <p class="section-label">Our Details</p>
           <h2 class="section-title">Reach Us</h2>
           <div class="gold-divider"></div>
-          <div class="contact-info-item"><div class="contact-icon">📍</div><div><h4>Address</h4><p>Mount Carmel AG Church<br>Peringome, India<br><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,698m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3ba46779bbb87755:0x35b125006509ee40!2sMount+Carmel+AG+CHURCH+PERINGOME!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8!3m5!1s0x3ba46779bbb87755:0x35b125006509ee40!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" style="color:var(--gold);text-decoration:none;">View on Google Maps</a></p></div></div>
+          <div class="contact-info-item"><div class="contact-icon">📍</div><div><h4>Address</h4><p>Mount Carmel AG Church<br>Peringome, India<br><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,698m" target="_blank" style="color:var(--gold);text-decoration:none;">View on Google Maps</a></p></div></div>
           <div class="contact-info-item"><div class="contact-icon">👨‍💼</div><div><h4>Lead Pastor</h4><p>Pr. Shiju Mathai</p></div></div>
           <div class="contact-info-item"><div class="contact-icon">📋</div><div><h4>Secretary</h4><p>Br. Siby<br><a href="tel:+919447936894" style="color:var(--gold);text-decoration:none;">+91 9447936894</a></p></div></div>
           <div class="contact-info-item"><div class="contact-icon">🕙</div><div><h4>Office Hours</h4><p>Monday – Saturday · 9:00 AM – 5:00 PM</p></div></div>
@@ -777,89 +710,80 @@ padding-top: 64px;
 <div class="toast" id="toast"></div>
 
 <script>
+  // ── PAGE NAVIGATION ──
   function showPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-    document.getElementById('page-' + id).classList.add('active');
-    const navEl = document.getElementById('nav-' + id);
+    document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
+    var page = document.getElementById('page-' + id);
+    if (page) page.classList.add('active');
+    var navEl = document.getElementById('nav-' + id);
     if (navEl) navEl.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.getElementById('navLinks').classList.remove('open');
     setTimeout(observeFadeIns, 80);
   }
 
+  // ── HAMBURGER MENU ──
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
   }
 
+  // ── TOAST NOTIFICATION ──
   function showToast(msg) {
-    const t = document.getElementById('toast');
+    var t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3500);
+    setTimeout(function() { t.classList.remove('show'); }, 3500);
   }
 
+  // ── PRAYER REQUEST ──
   function submitPrayer() {
-    const name = document.getElementById('prayerName').value.trim() || 'Anonymous';
-    const req = document.getElementById('prayerRequest').value.trim();
-    const type = document.getElementById('prayerType').value;
+    var name = document.getElementById('prayerName').value.trim() || 'Anonymous';
+    var req = document.getElementById('prayerRequest').value.trim();
+    var type = document.getElementById('prayerType').value;
     if (!req) { showToast('Please enter your prayer request.'); return; }
-    const msg = encodeURIComponent('🙏 Prayer Request\n\nFrom: ' + name + '\nType: ' + type + '\n\nRequest: ' + req + '\n\n— Sent via Mount Carmel AG Church website');
+    var msg = encodeURIComponent('🙏 Prayer Request\n\nFrom: ' + name + '\nType: ' + type + '\n\nRequest: ' + req + '\n\n— Sent via Mount Carmel AG Church website');
     document.getElementById('waBtn').href = 'https://wa.me/919947719883?text=' + msg;
     showToast('Prayer request received! 🙏 You can also send it via WhatsApp below.');
     document.getElementById('prayerRequest').value = '';
     document.getElementById('prayerName').value = '';
   }
 
-  ['prayerName','prayerRequest','prayerType'].forEach(function(id) {
+  // ── LIVE WHATSAPP LINK UPDATE ──
+  ['prayerName', 'prayerRequest', 'prayerType'].forEach(function(id) {
     var el = document.getElementById(id);
-    if (el) el.addEventListener('input', function() {
-      var name = document.getElementById('prayerName').value.trim() || 'Anonymous';
-      var req = document.getElementById('prayerRequest').value.trim() || '';
-      var type = document.getElementById('prayerType').value || '';
-      var msg = encodeURIComponent('🙏 Prayer Request\n\nFrom: ' + name + '\nType: ' + type + '\n\nRequest: ' + req + '\n\n— Sent via Mount Carmel AG Church website');
-      var btn = document.getElementById('waBtn');
-      if (btn) btn.href = 'https://wa.me/919947719883?text=' + msg;
-    });
+    if (el) {
+      el.addEventListener('input', function() {
+        var name = document.getElementById('prayerName').value.trim() || 'Anonymous';
+        var req = document.getElementById('prayerRequest').value.trim() || '';
+        var type = document.getElementById('prayerType').value || '';
+        var msg = encodeURIComponent('🙏 Prayer Request\n\nFrom: ' + name + '\nType: ' + type + '\n\nRequest: ' + req + '\n\n— Sent via Mount Carmel AG Church website');
+        var btn = document.getElementById('waBtn');
+        if (btn) btn.href = 'https://wa.me/919947719883?text=' + msg;
+      });
+    }
   });
 
+  // ── GALLERY SCROLL ──
+  function scrollGallery(direction) {
+    var gallery = document.getElementById('galleryScroll');
+    if (gallery) {
+      gallery.scrollBy({ left: direction * 320, behavior: 'smooth' });
+    }
+  }
+
+  // ── FADE IN ON SCROLL ──
   function observeFadeIns() {
     var els = document.querySelectorAll('.page.active .fade-in');
     var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+      entries.forEach(function(e) {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
     }, { threshold: 0.08 });
     els.forEach(function(el) { obs.observe(el); });
   }
 
   observeFadeIns();
-<script>
-// PAGE NAVIGATION
-function showPage(pageId) {
-  const pages = document.querySelectorAll('.page');
-  pages.forEach(page => page.classList.remove('active'));
-
-  const target = document.getElementById(pageId);
-  if (target) target.classList.add('active');
-
-  const navLinks = document.querySelectorAll('.nav-links a');
-  navLinks.forEach(link => link.classList.remove('active'));
-
-  const activeLink = document.getElementById('nav-' + pageId);
-  if (activeLink) activeLink.classList.add('active');
-}
-
-// GALLERY SCROLL
-function scrollGallery(direction) {
-  const gallery = document.getElementById('gallery');
-  const scrollAmount = 320;
-
-  gallery.scrollBy({
-    left: direction * scrollAmount,
-    behavior: 'smooth'
-  });
-}
 </script>
-</body>
-</html>
 </body>
 </html>
