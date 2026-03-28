@@ -99,8 +99,8 @@
   .hero-scripture { font-size: 1rem; color: rgba(255,255,255,0.65); font-style: italic; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.6s ease both; }
   .hero-cards { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.8s ease both; }
   .hero-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(200,169,110,0.3); border-radius: 10px; padding: 0.85rem 1.25rem; text-align: left; min-width: 155px; }
-  .hero-card .label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
-  .hero-card .value { font-size: 0.88rem; color: rgba(255,255,255,0.9); line-height: 1.45; }
+  .hero-card .label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 0.35rem; }
+  .hero-card .value { font-size: 0.88rem; color: var(--gold); line-height: 1.45; }
   .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 1s ease both; }
 
   .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: 6px; font-size: 0.83rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; cursor: pointer; border: none; transition: all 0.25s; text-decoration: none; font-family: 'Lato', sans-serif; }
@@ -284,12 +284,12 @@
       <p class="hero-scripture">"For where two or three gather in my name, there am I with them." — Matthew 18:20</p>
       <div class="hero-cards">
         <div class="hero-card"><div class="label">⛪ Main Service</div><div class="value">Sunday 10:00 AM – 12:30 PM</div></div>
-        <div class="hero-card"><div class="label">📍 Location</div><div class="value"><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,698m" target="_blank" style="color:rgba(255,255,255,0.9);text-decoration:none;">Peringome, India</a></div></div>
+        <div class="hero-card"><div class="label">📍 Location</div><div class="value"><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,698m" target="_blank" style="color:var(--gold);text-decoration:none;">Peringome, India</a></div></div>
         <div class="hero-card"><div class="label">👨‍💼 Pastor</div><div class="value">Pr. Shiju Mathai</div></div>
       </div>
       <div class="hero-btns">
         <button class="btn btn-gold" onclick="showPage('visit')">Plan Your Visit</button>
-        <button class="btn btn-outline" onclick="showPage('services')">Service Times</button>
+        <button class="btn btn-gold" onclick="showPage('services')">Service Times</button>
       </div>
     </div>
   </div>
