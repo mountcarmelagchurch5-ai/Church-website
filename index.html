@@ -7,10 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --gold: #C8A96E;
-    --gold-light: #E8D5A3;
-    --deep: #1A2640;
-    --navy: #243350;
+    --gold: #C9A84C;
+    --gold-light: #E8CC80;
+    --gold-hover: #D4B060;
+    --deep: #0F1B2D;
+    --navy: #1A2B42;
+    --navy-mid: #1E3250;
     --cream: #FAF7F2;
     --warm-white: #FEFCF8;
     --text: #2D3748;
@@ -23,32 +25,28 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Lato', sans-serif; background: var(--warm-white); color: var(--text); overflow-x: hidden; }
 
+  /* ─── NAV ─── */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 1000;
-    background: rgba(26,38,64,0.97); backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(200,169,110,0.25);
+    background: rgba(15,27,45,0.97); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,168,76,0.3);
     padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px;
   }
-
   .nav-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.2rem; text-decoration: none; cursor: pointer; display: flex; align-items: center; gap: 0.75rem; }
   .nav-logo { width: 40px; height: 40px; border-radius: 50%; background-size: cover; background-position: center; }
-
   .nav-links { display: flex; gap: 0.15rem; list-style: none; }
   .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.45rem 0.65rem; border-radius: 4px; transition: all 0.2s; cursor: pointer; display: block; }
-  .nav-links a:hover, .nav-links a.active { color: var(--gold); background: rgba(200,169,110,0.1); }
-
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); background: rgba(201,168,76,0.12); }
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
   .hamburger span { width: 24px; height: 2px; background: var(--gold); border-radius: 2px; display: block; transition: all 0.3s; }
 
+  /* ─── PAGES ─── */
   .page { display: none; min-height: 100vh; }
   .page.active { display: block; }
 
+  /* ─── HERO WITH KEN BURNS ─── */
   .hero {
     min-height: 100vh;
-    background-image: linear-gradient(160deg, rgba(26,38,64,0.75), rgba(36,51,80,0.75)), url('about-ush.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     position: relative;
     display: flex;
     align-items: center;
@@ -56,194 +54,234 @@
     overflow: hidden;
     padding-top: 64px;
   }
-  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(200,169,110,0.08) 0%, transparent 60%); }
 
-  .hero-cross { position: absolute; width: 300px; height: 300px; opacity: 0.04; right: 8%; top: 50%; transform: translateY(-50%); }
+  /* Ken Burns: two image layers that crossfade while panning */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
 
-  .hero-content { position: relative; z-index: 2; text-align: center; padding: 4rem 2rem; max-width: 800px; animation: fadeUp 1s ease both; }
+  .hero-bg-layer {
+    position: absolute;
+    inset: -8%;           /* extra room for the pan movement */
+    background-image: linear-gradient(160deg, rgba(15,27,45,0.72) 0%, rgba(26,43,66,0.68) 100%), url('about-ush.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: kenBurns 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes kenBurns {
+    0%   { transform: scale(1)    translate(0%,  0%);   }
+    25%  { transform: scale(1.06) translate(-2%, -1%);  }
+    50%  { transform: scale(1.10) translate(-1%,  2%);  }
+    75%  { transform: scale(1.07) translate( 2%,  1%);  }
+    100% { transform: scale(1.04) translate( 1%, -2%);  }
+  }
+
+  /* subtle radial glow overlay */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,168,76,0.07) 0%, transparent 60%);
+  }
+
+  .hero-cross { position: absolute; z-index: 1; width: 300px; height: 300px; opacity: 0.05; right: 8%; top: 50%; transform: translateY(-50%); }
+
+  .hero-content { position: relative; z-index: 2; text-align: center; padding: 4rem 2rem; max-width: 820px; animation: fadeUp 1s ease both; }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
   .hero-eyebrow {
-    font-size: 0.78rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 1.25rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s ease both;
+    font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 1.25rem;
+    opacity: 0; animation: fadeUp 0.8s 0.2s ease both;
   }
-
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    color: #ffffff;
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    opacity: 0;
-    white-space: nowrap;
-    animation: fadeUp 0.8s 0.3s ease both;
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
+    color: #ffffff; line-height: 1.12; margin-bottom: 1.5rem;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    opacity: 0; white-space: nowrap; animation: fadeUp 0.8s 0.3s ease both;
   }
-  @media (max-width: 600px) {
-    .hero h1 { white-space: normal; font-size: clamp(1.8rem, 7vw, 2.4rem); }
-  }
+  @media (max-width: 600px) { .hero h1 { white-space: normal; font-size: clamp(1.8rem, 7vw, 2.4rem); } }
+  .hero h1 em { font-style: normal; color: var(--gold); text-shadow: 0 4px 24px rgba(201,168,76,0.4); }
 
-  .hero h1 em {
-    font-style: normal;
-    color: var(--gold);
-    text-shadow: 0 4px 20px rgba(200,169,110,0.4);
-  }
-
-  .hero-scripture { font-size: 1rem; color: rgba(255,255,255,0.65); font-style: italic; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.6s ease both; }
+  .hero-scripture { font-size: 1.05rem; color: rgba(255,255,255,0.7); font-style: italic; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.6s ease both; }
   .hero-cards { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.8s ease both; }
-  .hero-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(200,169,110,0.3); border-radius: 10px; padding: 0.85rem 1.25rem; text-align: left; min-width: 155px; }
-  .hero-card .label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 0.35rem; }
-  .hero-card .value { font-size: 0.88rem; color: var(--gold); line-height: 1.45; }
+  .hero-card {
+    background: rgba(15,27,45,0.55);
+    border: 1.5px solid rgba(201,168,76,0.45);
+    border-radius: 10px; padding: 0.9rem 1.35rem; text-align: left; min-width: 160px;
+    backdrop-filter: blur(6px);
+  }
+  .hero-card .label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.85); font-weight: 700; margin-bottom: 0.35rem; }
+  .hero-card .value { font-size: 0.9rem; color: var(--gold); line-height: 1.45; font-weight: 600; }
   .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 1s ease both; }
 
-  .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: 6px; font-size: 0.83rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; cursor: pointer; border: none; transition: all 0.25s; text-decoration: none; font-family: 'Lato', sans-serif; }
+  /* ─── BUTTONS ─── */
+  .btn { display: inline-block; padding: 0.9rem 2.2rem; border-radius: 6px; font-size: 0.83rem; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 700; cursor: pointer; border: none; transition: all 0.25s; text-decoration: none; font-family: 'Lato', sans-serif; }
   .btn-gold { background: var(--gold); color: var(--deep); }
-  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,110,0.35); }
-  .btn-outline { background: transparent; border: 1.5px solid rgba(200,169,110,0.6); color: rgba(255,255,255,0.9); }
-  .btn-outline:hover { border-color: var(--gold); background: rgba(200,169,110,0.1); transform: translateY(-2px); }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.4); }
+  .btn-outline { background: transparent; border: 1.5px solid rgba(201,168,76,0.65); color: rgba(255,255,255,0.92); }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.12); transform: translateY(-2px); }
 
+  /* ─── SECTIONS ─── */
   section { padding: 5rem 2rem; }
   .container { max-width: 1100px; margin: 0 auto; }
-  .section-label { font-size: 0.73rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .section-label { font-size: 0.73rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; font-weight: 700; }
   .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 4vw, 2.8rem); color: var(--deep); line-height: 1.25; margin-bottom: 1.25rem; }
   .section-subtitle { font-size: 1rem; color: var(--text-light); max-width: 580px; line-height: 1.75; }
-
   .gold-divider { width: 60px; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 2px; margin: 1rem 0 2rem; }
 
+  /* ─── SCRIPTURE BANNER ─── */
   .scripture-banner { background: linear-gradient(135deg, var(--deep) 0%, var(--navy) 100%); padding: 4rem 2rem; text-align: center; }
   .scripture-banner blockquote { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 3vw, 1.9rem); font-style: italic; color: var(--gold-light); max-width: 750px; margin: 0 auto 1rem; line-height: 1.6; }
-  .scripture-banner cite { font-size: 0.82rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-transform: uppercase; }
+  .scripture-banner cite { font-size: 0.82rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
 
+  /* ─── SERVICE CARDS ─── */
   .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; }
-  .service-card { background: var(--cream); border-radius: 12px; padding: 1.75rem; border: 1px solid rgba(200,169,110,0.2); transition: all 0.25s; position: relative; overflow: hidden; }
+  .service-card { background: var(--cream); border-radius: 12px; padding: 1.75rem; border: 1px solid rgba(201,168,76,0.2); transition: all 0.25s; position: relative; overflow: hidden; }
   .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
   .service-card:hover::before { transform: scaleX(1); }
-  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,38,64,0.1); }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(15,27,45,0.12); }
   .service-day { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem; }
   .service-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--deep); margin-bottom: 0.5rem; }
   .service-time { font-size: 0.92rem; color: var(--text-light); }
-  .service-tag { display: inline-block; background: rgba(200,169,110,0.15); color: var(--gold); font-size: 0.68rem; padding: 0.2rem 0.6rem; border-radius: 20px; margin-top: 0.75rem; letter-spacing: 0.06em; }
+  .service-tag { display: inline-block; background: rgba(201,168,76,0.15); color: var(--gold); font-size: 0.68rem; padding: 0.2rem 0.6rem; border-radius: 20px; margin-top: 0.75rem; letter-spacing: 0.06em; font-weight: 700; }
 
+  /* ─── MINISTRY CARDS ─── */
   .ministry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem; }
-  .ministry-card { border-radius: 14px; overflow: hidden; background: var(--cream); border: 1px solid rgba(200,169,110,0.2); transition: all 0.3s; }
-  .ministry-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(26,38,64,0.12); }
-  .ministry-header { background: linear-gradient(135deg, var(--deep) 0%, var(--navy) 100%); padding: 2rem 1.75rem 1.5rem; }
+  .ministry-card { border-radius: 14px; overflow: hidden; background: var(--cream); border: 1px solid rgba(201,168,76,0.2); transition: all 0.3s; }
+  .ministry-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(15,27,45,0.14); }
+  .ministry-header { background: linear-gradient(135deg, var(--deep) 0%, var(--navy-mid) 100%); padding: 2rem 1.75rem 1.5rem; }
   .ministry-icon { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
   .ministry-header h3 { font-family: 'Playfair Display', serif; color: #fff; font-size: 1.2rem; margin-bottom: 0.25rem; }
   .ministry-header span { font-size: 0.76rem; color: var(--gold); letter-spacing: 0.08em; }
   .ministry-body { padding: 1.5rem 1.75rem; }
   .ministry-body p { color: var(--text-light); font-size: 0.9rem; line-height: 1.7; }
 
+  /* ─── LEADER CARDS ─── */
   .leader-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.5rem; }
-  .leader-card { background: var(--cream); border-radius: 14px; padding: 2rem 1.5rem; text-align: center; border: 1px solid rgba(200,169,110,0.2); transition: all 0.25s; }
-  .leader-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(26,38,64,0.1); }
+  .leader-card { background: var(--cream); border-radius: 14px; padding: 2rem 1.5rem; text-align: center; border: 1px solid rgba(201,168,76,0.2); transition: all 0.25s; }
+  .leader-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(15,27,45,0.12); }
   .leader-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--deep), var(--navy)); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1rem; border: 3px solid var(--gold); overflow: hidden; }
-  .leader-role { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
+  .leader-role { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; font-weight: 700; }
   .leader-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--deep); margin-bottom: 0.5rem; }
   .leader-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; }
 
+  /* ─── TESTIMONIALS ─── */
   .testimonials-section { background: var(--blush); }
   .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; }
-  .testimonial-card { background: #fff; border-radius: 14px; padding: 2rem; box-shadow: 0 4px 16px rgba(26,38,64,0.06); }
+  .testimonial-card { background: #fff; border-radius: 14px; padding: 2rem; box-shadow: 0 4px 16px rgba(15,27,45,0.07); border-top: 3px solid var(--gold); }
   .testimonial-quote { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
   .testimonial-card p { font-size: 0.92rem; color: var(--text); line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
   .testimonial-author { font-size: 0.83rem; font-weight: 700; color: var(--deep); }
 
+  /* ─── EVENTS ─── */
   .events-list { display: flex; flex-direction: column; gap: 1rem; }
   .event-item { display: flex; align-items: center; gap: 1.5rem; background: var(--cream); border-radius: 12px; padding: 1.25rem 1.5rem; border-left: 4px solid var(--gold); transition: all 0.2s; }
-  .event-item:hover { transform: translateX(4px); box-shadow: 0 4px 16px rgba(26,38,64,0.08); }
+  .event-item:hover { transform: translateX(4px); box-shadow: 0 4px 16px rgba(15,27,45,0.09); }
   .event-date { min-width: 52px; text-align: center; }
   .event-date .day { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--gold); line-height: 1; }
   .event-date .month { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
   .event-info h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--deep); margin-bottom: 0.2rem; }
   .event-info p { font-size: 0.82rem; color: var(--text-light); }
 
+  /* ─── GALLERY ─── */
   .gallery-container { position: relative; display: flex; align-items: center; padding: 0 2rem; }
   .gallery-wrapper { overflow: hidden; width: 100%; }
   .gallery-scroll { display: flex; gap: 16px; overflow-x: auto; scroll-behavior: smooth; padding: 10px; }
   .gallery-scroll::-webkit-scrollbar { display: none; }
   .gallery-item { min-width: 300px; height: 200px; flex: 0 0 auto; border-radius: 10px; overflow: hidden; }
   .gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: none; }
-  .gallery-item.placeholder-show { background: linear-gradient(135deg, #1A2640, #243350); display: flex; align-items: center; justify-content: center; font-size: 2rem; }
-  .g1{background:linear-gradient(135deg,#1A2640,#243350)}.g2{background:linear-gradient(135deg,#7A8C6E,#5A6E52)}.g3{background:linear-gradient(135deg,#C8A96E,#A8894E)}.g4{background:linear-gradient(135deg,#243350,#3A5070)}.g5{background:linear-gradient(135deg,#9A7A5E,#7A5A3E)}.g6{background:linear-gradient(135deg,#5A6E52,#3A4E32)}
-
-  .scroll-btn { background: rgba(0,0,0,0.6); color: white; border: none; font-size: 24px; padding: 10px 14px; cursor: pointer; position: absolute; z-index: 10; border-radius: 6px; transition: background 0.2s; }
-  .scroll-btn:hover { background: rgba(200,169,110,0.8); }
+  .gallery-item.placeholder-show { background: linear-gradient(135deg, #0F1B2D, #1A2B42); display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+  .g1{background:linear-gradient(135deg,#0F1B2D,#1A2B42)}.g2{background:linear-gradient(135deg,#7A8C6E,#5A6E52)}.g3{background:linear-gradient(135deg,#C9A84C,#A88A30)}.g4{background:linear-gradient(135deg,#1A2B42,#2A4060)}.g5{background:linear-gradient(135deg,#9A7A5E,#7A5A3E)}.g6{background:linear-gradient(135deg,#5A6E52,#3A4E32)}
+  .scroll-btn { background: rgba(15,27,45,0.75); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); font-size: 22px; padding: 10px 14px; cursor: pointer; position: absolute; z-index: 10; border-radius: 6px; transition: background 0.2s; }
+  .scroll-btn:hover { background: var(--gold); color: var(--deep); }
   .scroll-btn.left { left: 0; }
   .scroll-btn.right { right: 0; }
 
+  /* ─── SERMONS ─── */
   .sermon-list { display: flex; flex-direction: column; gap: 1rem; }
-  .sermon-item { display: flex; align-items: center; gap: 1.5rem; background: var(--cream); border-radius: 12px; padding: 1.25rem 1.5rem; border: 1px solid rgba(200,169,110,0.2); transition: all 0.25s; cursor: pointer; }
-  .sermon-item:hover { border-color: var(--gold); box-shadow: 0 6px 20px rgba(26,38,64,0.08); }
-  .play-btn { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; transition: transform 0.2s; }
+  .sermon-item { display: flex; align-items: center; gap: 1.5rem; background: var(--cream); border-radius: 12px; padding: 1.25rem 1.5rem; border: 1px solid rgba(201,168,76,0.2); transition: all 0.25s; cursor: pointer; }
+  .sermon-item:hover { border-color: var(--gold); box-shadow: 0 6px 20px rgba(15,27,45,0.09); }
+  .play-btn { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; transition: transform 0.2s; color: var(--deep); }
   .sermon-item:hover .play-btn { transform: scale(1.1); }
   .sermon-info h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--deep); margin-bottom: 0.2rem; }
   .sermon-info p { font-size: 0.82rem; color: var(--text-light); }
 
-  .page-hero { background: linear-gradient(135deg, var(--deep) 0%, var(--navy) 100%); padding: 7rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
-  .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(200,169,110,0.07) 0%, transparent 60%); }
+  /* ─── PAGE HERO ─── */
+  .page-hero { background: linear-gradient(135deg, var(--deep) 0%, var(--navy-mid) 100%); padding: 7rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
+  .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 60%); }
   .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; position: relative; margin-bottom: 0.75rem; }
-  .page-hero p { color: rgba(255,255,255,0.65); font-size: 1rem; position: relative; }
+  .page-hero p { color: rgba(255,255,255,0.6); font-size: 1rem; position: relative; }
 
+  /* ─── VISIT STEPS ─── */
   .visit-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; }
-  .visit-step { background: var(--cream); border-radius: 14px; padding: 2rem; border: 1px solid rgba(200,169,110,0.2); text-align: center; transition: all 0.25s; }
-  .visit-step:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(26,38,64,0.1); }
+  .visit-step { background: var(--cream); border-radius: 14px; padding: 2rem; border: 1px solid rgba(201,168,76,0.2); text-align: center; transition: all 0.25s; }
+  .visit-step:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(15,27,45,0.1); }
   .step-num { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--deep), var(--navy)); color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
   .visit-step h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--deep); margin-bottom: 0.5rem; }
   .visit-step p { font-size: 0.9rem; color: var(--text-light); line-height: 1.65; }
 
+  /* ─── BELIEF CARDS ─── */
   .belief-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-  .belief-card { background: #fff; border-radius: 12px; padding: 1.75rem; border-left: 4px solid var(--gold); box-shadow: 0 4px 16px rgba(26,38,64,0.05); transition: all 0.25s; }
-  .belief-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(26,38,64,0.1); }
+  .belief-card { background: #fff; border-radius: 12px; padding: 1.75rem; border-left: 4px solid var(--gold); box-shadow: 0 4px 16px rgba(15,27,45,0.06); transition: all 0.25s; }
+  .belief-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(15,27,45,0.11); }
   .belief-card h3 { font-family: 'Playfair Display', serif; color: var(--deep); font-size: 1.05rem; margin-bottom: 0.6rem; }
   .belief-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
 
+  /* ─── CONTACT ─── */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
   .contact-info-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.75rem; }
   .contact-icon { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--deep), var(--navy)); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-  .contact-info-item h4 { font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+  .contact-info-item h4 { font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; font-weight: 700; }
   .contact-info-item p { font-size: 0.9rem; color: var(--text); line-height: 1.6; }
 
-  .prayer-form { max-width: 600px; margin: 0 auto; background: var(--cream); border-radius: 16px; padding: 2.5rem; border: 1px solid rgba(200,169,110,0.25); box-shadow: 0 8px 32px rgba(26,38,64,0.06); }
+  /* ─── PRAYER FORM ─── */
+  .prayer-form { max-width: 600px; margin: 0 auto; background: var(--cream); border-radius: 16px; padding: 2.5rem; border: 1px solid rgba(201,168,76,0.25); box-shadow: 0 8px 32px rgba(15,27,45,0.07); }
   .form-group { margin-bottom: 1.25rem; }
   .form-group label { display: block; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 700; }
-  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.85rem 1rem; border: 1.5px solid rgba(200,169,110,0.3); border-radius: 8px; background: #fff; font-size: 0.92rem; font-family: 'Lato', sans-serif; color: var(--text); transition: border-color 0.2s; outline: none; }
-  .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200,169,110,0.12); }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.85rem 1rem; border: 1.5px solid rgba(201,168,76,0.3); border-radius: 8px; background: #fff; font-size: 0.92rem; font-family: 'Lato', sans-serif; color: var(--text); transition: border-color 0.2s; outline: none; }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.14); }
   .form-group textarea { min-height: 130px; resize: vertical; }
 
+  /* ─── WHATSAPP BTN ─── */
   .btn-whatsapp { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #fff; padding: 0.9rem 2rem; border-radius: 8px; font-size: 0.86rem; font-weight: 700; letter-spacing: 0.04em; cursor: pointer; border: none; transition: all 0.25s; text-decoration: none; font-family: 'Lato', sans-serif; }
   .btn-whatsapp:hover { background: #1EBB58; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,211,102,0.3); }
 
-  .map-placeholder { background: linear-gradient(135deg, var(--deep), var(--navy)); border-radius: 14px; height: 280px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; color: rgba(255,255,255,0.7); }
+  /* ─── MAP PLACEHOLDER ─── */
+  .map-placeholder { background: linear-gradient(135deg, var(--deep), var(--navy-mid)); border-radius: 14px; height: 280px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; color: rgba(255,255,255,0.7); }
 
   .alt-bg { background: var(--blush); }
 
-  footer { background: var(--deep); color: rgba(255,255,255,0.65); padding: 3rem 2rem 1.5rem; }
+  /* ─── FOOTER ─── */
+  footer { background: var(--deep); color: rgba(255,255,255,0.65); padding: 3rem 2rem 1.5rem; border-top: 2px solid rgba(201,168,76,0.2); }
   .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
   .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 0.75rem; }
-  .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.65; font-family: 'Lato', sans-serif; }
+  .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.65; font-family: 'Lato', sans-serif; }
   footer h4 { font-size: 0.73rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
   footer ul { list-style: none; }
   footer ul li { margin-bottom: 0.5rem; }
-  footer ul li a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.86rem; transition: color 0.2s; cursor: pointer; }
+  footer ul li a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.86rem; transition: color 0.2s; cursor: pointer; }
   footer ul li a:hover { color: var(--gold); }
-  .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+  .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.3); }
 
-  .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--deep); color: var(--gold); padding: 1rem 1.5rem; border-radius: 10px; font-size: 0.9rem; border: 1px solid rgba(200,169,110,0.3); box-shadow: 0 8px 24px rgba(0,0,0,0.2); transform: translateY(100px); opacity: 0; transition: all 0.4s; z-index: 9999; max-width: 320px; }
+  /* ─── TOAST ─── */
+  .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--deep); color: var(--gold); padding: 1rem 1.5rem; border-radius: 10px; font-size: 0.9rem; border: 1px solid rgba(201,168,76,0.35); box-shadow: 0 8px 24px rgba(0,0,0,0.25); transform: translateY(100px); opacity: 0; transition: all 0.4s; z-index: 9999; max-width: 320px; }
   .toast.show { transform: translateY(0); opacity: 1; }
 
+  /* ─── FADE IN ─── */
   .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+  /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--deep); padding: 1rem 0; border-top: 1px solid rgba(200,169,110,0.2); }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--deep); padding: 1rem 0; border-top: 1px solid rgba(201,168,76,0.2); }
     .nav-links.open { display: flex; }
     .nav-links a { padding: 0.75rem 2rem; border-radius: 0; }
     .hamburger { display: flex; }
@@ -277,14 +315,20 @@
 <!-- ═══ HOME ═══ -->
 <div class="page active" id="page-home">
   <div class="hero">
+    <!-- Ken Burns background layer -->
+    <div class="hero-bg">
+      <div class="hero-bg-layer"></div>
+    </div>
+
     <svg class="hero-cross" viewBox="0 0 100 100" fill="white"><rect x="42" y="5" width="16" height="90" rx="2"/><rect x="5" y="32" width="90" height="16" rx="2"/></svg>
+
     <div class="hero-content">
       <p class="hero-eyebrow">Welcome to Our Family</p>
       <h1>Mount Carmel AG Church</h1>
       <p class="hero-scripture">"For where two or three gather in my name, there am I with them." — Matthew 18:20</p>
       <div class="hero-cards">
         <div class="hero-card"><div class="label">⛪ Main Service</div><div class="value">Sunday 10:00 AM – 12:30 PM</div></div>
-        <div class="hero-card"><div class="label">📍 Location</div><div class="value"><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba46779bbb87755:0x35b125006509ee40!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color:var(--gold);text-decoration:none;">Peringome, India</a></div></div>
+        <div class="hero-card"><div class="label">📍 Location</div><div class="value"><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z" target="_blank" style="color:var(--gold);text-decoration:none;">Peringome, India</a></div></div>
         <div class="hero-card"><div class="label">👨‍💼 Pastor</div><div class="value">Pr. Shiju Mathai</div></div>
       </div>
       <div class="hero-btns">
@@ -440,7 +484,7 @@
           <div class="map-placeholder">
             <div style="font-size:3rem;">📍</div>
             <div style="text-align:center;"><p style="font-size:1rem;margin-bottom:0.5rem;">Mount Carmel AG Church</p><p style="font-size:0.85rem;opacity:0.7;">Peringome, India</p></div>
-            <button class="btn btn-gold" onclick="window.open('https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba46779bbb87755:0x35b125006509ee40!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D','_blank')">Open in Google Maps</button>
+            <button class="btn btn-gold" onclick="window.open('https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z','_blank')">Open in Google Maps</button>
           </div>
           <div style="margin-top:1.75rem;">
             <div class="contact-info-item"><div class="contact-icon">🕙</div><div><h4>Best Time to Visit</h4><p>Sunday Morning Service · 10:00 AM – 12:30 PM is our main gathering — perfect for first-time visitors.</p></div></div>
@@ -473,7 +517,6 @@
       </div>
     </div>
   </section>
-
   <section class="alt-bg">
     <div class="container">
       <p class="section-label">Our Journey</p>
@@ -488,8 +531,8 @@
           <p style="font-size:1rem;color:var(--text);line-height:1.85;">Today, Mount Carmel AG Church stands as a testimony to God's faithfulness — growing from a small gathering of six families into a vibrant and welcoming church community. The journey reflects the power of faith, unity, and God's guiding hand in every step.</p>
         </div>
         <div style="text-align:center;">
-          <img src="pastor-family.jpg" alt="Pastor Shiju Mathai and Family" style="width:100%;max-width:400px;border-radius:12px;box-shadow:0 12px 32px rgba(26,38,64,0.15);margin-bottom:1.5rem;" />
-          <div style="background:#fff;padding:1.5rem;border-radius:12px;border:1px solid rgba(200,169,110,0.2);">
+          <img src="pastor-family.jpg" alt="Pastor Shiju Mathai and Family" style="width:100%;max-width:400px;border-radius:12px;box-shadow:0 12px 32px rgba(15,27,45,0.15);margin-bottom:1.5rem;" />
+          <div style="background:#fff;padding:1.5rem;border-radius:12px;border:1px solid rgba(201,168,76,0.2);">
             <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--deep);margin-bottom:0.5rem;font-weight:bold;">👨‍👩‍👧‍👦 Pr. Shiju Mathai & Family</p>
             <p style="font-size:0.9rem;color:var(--text-light);line-height:1.6;">Leading Mount Carmel AG Church with faith, vision, and dedication to God's work. The pastoral family is committed to shepherding this growing congregation with love and spiritual oversight.</p>
           </div>
@@ -497,7 +540,6 @@
       </div>
     </div>
   </section>
-
   <section>
     <div class="container">
       <div class="contact-grid">
@@ -577,19 +619,16 @@
       </div>
     </div>
   </section>
-
   <section class="alt-bg">
     <div class="container">
       <p class="section-label">Serving Together</p>
       <h2 class="section-title">Leadership & Committee</h2>
       <div class="gold-divider"></div>
       <p style="font-size:1rem;color:var(--text-light);max-width:620px;margin-bottom:3rem;line-height:1.75;">Our leadership team is called to serve humbly, love faithfully, and lead by example. Each leader is committed to the vision of Mount Carmel AG Church.</p>
-
       <h3 style="font-family:'Playfair Display',serif;color:var(--deep);font-size:1.3rem;margin-bottom:1.5rem;">Pastoral Leadership</h3>
       <div class="leader-grid fade-in" style="margin-bottom:3rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
         <div class="leader-card"><div class="leader-avatar"><img src="pastor-shiju.jpg" alt="Pr. Shiju Mathai" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="leader-role">Lead Pastor / President</div><div class="leader-name">Pr. Shiju Mathai</div><div class="leader-desc">Shepherd and President of Mount Carmel AG Church. Called to preach the Word, lead the flock, and build a house of prayer. Passionate about revival, discipleship, and mission.</div></div>
       </div>
-
       <h3 style="font-family:'Playfair Display',serif;color:var(--deep);font-size:1.3rem;margin-bottom:1.5rem;">Church Committee</h3>
       <div class="leader-grid fade-in">
         <div class="leader-card"><div class="leader-avatar"><img src="siby-pm.jpg" alt="Siby" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="leader-role">Secretary</div><div class="leader-name">Br. Siby</div><div class="leader-desc">Responsible for church administration, correspondence, minutes of meetings, and coordinating all church communications and official records.</div></div>
@@ -628,7 +667,7 @@
           <a class="btn-whatsapp" id="waBtn" href="https://wa.me/919947719883?text=Hello%20Pastor%2C%20I%20have%20a%20prayer%20request." target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Send via WhatsApp</a>
         </div>
       </div>
-      <div style="max-width:560px;margin:3rem auto 0;text-align:center;padding:2rem;background:var(--cream);border-radius:14px;border:1px solid rgba(200,169,110,0.2);">
+      <div style="max-width:560px;margin:3rem auto 0;text-align:center;padding:2rem;background:var(--cream);border-radius:14px;border:1px solid rgba(201,168,76,0.2);">
         <p style="font-size:1.6rem;margin-bottom:0.5rem;">🕊️</p>
         <p style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--deep);margin-bottom:0.75rem;font-style:italic;">"The prayer of a righteous person is powerful and effective."</p>
         <p style="font-size:0.82rem;color:var(--text-light);letter-spacing:0.08em;">— James 5:16</p>
@@ -650,7 +689,7 @@
           <p class="section-label">Get in Touch</p>
           <h2 class="section-title">Send Us a Message</h2>
           <div class="gold-divider"></div>
-          <form action="https://formspree.io/f/xykbyyqj" method="POST" style="background:var(--cream);border-radius:16px;padding:2.5rem;border:1px solid rgba(200,169,110,0.2);">
+          <form action="https://formspree.io/f/xykbyyqj" method="POST" style="background:var(--cream);border-radius:16px;padding:2.5rem;border:1px solid rgba(201,168,76,0.2);">
             <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Full Name" required /></div>
             <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required /></div>
             <div class="form-group"><label>Subject</label><input type="text" name="subject" placeholder="How can we help?" required /></div>
@@ -662,7 +701,7 @@
           <p class="section-label">Our Details</p>
           <h2 class="section-title">Reach Us</h2>
           <div class="gold-divider"></div>
-          <div class="contact-info-item"><div class="contact-icon">📍</div><div><h4>Address</h4><p>Mount Carmel AG Church<br>Peringome, India<br><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba46779bbb87755:0x35b125006509ee40!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color:var(--gold);text-decoration:none;">View on Google Maps</a></p></div></div>
+          <div class="contact-info-item"><div class="contact-icon">📍</div><div><h4>Address</h4><p>Mount Carmel AG Church<br>Peringome, India<br><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z" target="_blank" style="color:var(--gold);text-decoration:none;">View on Google Maps</a></p></div></div>
           <div class="contact-info-item"><div class="contact-icon">👨‍💼</div><div><h4>Lead Pastor</h4><p>Pr. Shiju Mathai</p></div></div>
           <div class="contact-info-item"><div class="contact-icon">📋</div><div><h4>Secretary</h4><p>Br. Siby<br><a href="tel:+919447936894" style="color:var(--gold);text-decoration:none;">+91 9447936894</a></p></div></div>
           <div class="contact-info-item"><div class="contact-icon">🕙</div><div><h4>Office Hours</h4><p>Monday – Saturday · 9:00 AM – 5:00 PM</p></div></div>
@@ -765,17 +804,13 @@
 
   function scrollGallery(direction) {
     var gallery = document.getElementById('galleryScroll');
-    if (gallery) {
-      gallery.scrollBy({ left: direction * 320, behavior: 'smooth' });
-    }
+    if (gallery) { gallery.scrollBy({ left: direction * 320, behavior: 'smooth' }); }
   }
 
   function observeFadeIns() {
     var els = document.querySelectorAll('.page.active .fade-in');
     var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
+      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08 });
     els.forEach(function(el) { obs.observe(el); });
   }
