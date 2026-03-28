@@ -833,6 +833,22 @@ padding-top: 64px;
 
   observeFadeIns();
 <script>
+// PAGE NAVIGATION
+function showPage(pageId) {
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(page => page.classList.remove('active'));
+
+  const target = document.getElementById(pageId);
+  if (target) target.classList.add('active');
+
+  const navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(link => link.classList.remove('active'));
+
+  const activeLink = document.getElementById('nav-' + pageId);
+  if (activeLink) activeLink.classList.add('active');
+}
+
+// GALLERY SCROLL
 function scrollGallery(direction) {
   const gallery = document.getElementById('gallery');
   const scrollAmount = 320;
@@ -843,5 +859,7 @@ function scrollGallery(direction) {
   });
 }
 </script>
+</body>
+</html>
 </body>
 </html>
