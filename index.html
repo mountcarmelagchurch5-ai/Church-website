@@ -55,7 +55,6 @@
     padding-top: 64px;
   }
 
-  /* Ken Burns: two image layers that crossfade while panning */
   .hero-bg {
     position: absolute;
     inset: 0;
@@ -64,7 +63,7 @@
 
   .hero-bg-layer {
     position: absolute;
-    inset: -8%;           /* extra room for the pan movement */
+    inset: -8%;
     background-image: linear-gradient(160deg, rgba(15,27,45,0.72) 0%, rgba(26,43,66,0.68) 100%), url('about-ush.jpg');
     background-size: cover;
     background-position: center;
@@ -80,7 +79,6 @@
     100% { transform: scale(1.04) translate( 1%, -2%);  }
   }
 
-  /* subtle radial glow overlay */
   .hero::before {
     content: '';
     position: absolute;
@@ -315,7 +313,6 @@
 <!-- ═══ HOME ═══ -->
 <div class="page active" id="page-home">
   <div class="hero">
-    <!-- Ken Burns background layer -->
     <div class="hero-bg">
       <div class="hero-bg-layer"></div>
     </div>
@@ -328,7 +325,7 @@
       <p class="hero-scripture">"For where two or three gather in my name, there am I with them." — Matthew 18:20</p>
       <div class="hero-cards">
         <div class="hero-card"><div class="label">⛪ Main Service</div><div class="value">Sunday 10:00 AM – 12:30 PM</div></div>
-        <div class="hero-card"><div class="label">📍 Location</div><div class="value"><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z" target="_blank" style="color:var(--gold);text-decoration:none;">Peringome, India</a></div></div>
+        <div class="hero-card"><div class="label">📍 Location</div><div class="value"><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba46779bbb87755:0x35b125006509ee40!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color:var(--gold);text-decoration:none;">Peringome, India</a></div></div>
         <div class="hero-card"><div class="label">👨‍💼 Pastor</div><div class="value">Pr. Shiju Mathai</div></div>
       </div>
       <div class="hero-btns">
@@ -701,7 +698,7 @@
           <p class="section-label">Our Details</p>
           <h2 class="section-title">Reach Us</h2>
           <div class="gold-divider"></div>
-          <div class="contact-info-item"><div class="contact-icon">📍</div><div><h4>Address</h4><p>Mount Carmel AG Church<br>Peringome, India<br><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z" target="_blank" style="color:var(--gold);text-decoration:none;">View on Google Maps</a></p></div></div>
+          <div class="contact-info-item"><div class="contact-icon">📍</div><div><h4>Address</h4><p>Mount Carmel AG Church<br>Peringome, India<br><a href="https://www.google.com/maps/place/Mount+Carmel+AG+CHURCH+PERINGOME/@12.2165169,75.2999047,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba46779bbb87755:0x35b125006509ee40!8m2!3d12.2165117!4d75.3024796!16s%2Fg%2F11t5ynwzf8?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color:var(--gold);text-decoration:none;">View on Google Maps</a></p></div></div>
           <div class="contact-info-item"><div class="contact-icon">👨‍💼</div><div><h4>Lead Pastor</h4><p>Pr. Shiju Mathai</p></div></div>
           <div class="contact-info-item"><div class="contact-icon">📋</div><div><h4>Secretary</h4><p>Br. Siby<br><a href="tel:+919447936894" style="color:var(--gold);text-decoration:none;">+91 9447936894</a></p></div></div>
           <div class="contact-info-item"><div class="contact-icon">🕙</div><div><h4>Office Hours</h4><p>Monday – Saturday · 9:00 AM – 5:00 PM</p></div></div>
